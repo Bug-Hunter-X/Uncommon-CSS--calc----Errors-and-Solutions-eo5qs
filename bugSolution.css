@@ -1,0 +1,29 @@
+/* Correct usage of calc() */
+.element {
+  width: calc(100% - 20px);
+  height: calc(50% + 10vh);
+  padding: calc(10px * 2);
+}
+
+/* Correct nesting */
+.nested {
+  width: calc(calc(50% - 10px) * 2);
+}
+
+/* Correct unit handling */
+.units {
+  width: calc(100vw - 20px); /* Correct - uses vw */
+}
+
+/* Handling potential errors */
+.safe {
+  width: calc(min(100%, 500px)); /*Handles edge cases*/ 
+}
+
+/*Avoid the following errors:
+ * Incorrect Operator usage: width: calc(100%-10px);  (Should be width: calc(100% - 10px))
+ * Missing spaces: width:calc(100%-10px)
+ * Incorrect nesting: width:calc(calc(50%-10px)*2); (Should be width: calc(calc(50% - 10px) * 2));
+ * Mixed units: width: calc(100px + 50%)
+ * Incompatible properties: box-shadow: calc(10px 10px 10px 10px) (may not work as expected)
+*/
